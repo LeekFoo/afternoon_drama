@@ -1,6 +1,11 @@
 @charset "utf-8";
 
+body {
+    background: #dfe8e3;
+}
+
 .card {
+    font-family: 'Sawarabi Mincho', sans-serif;
     display: flex;
     width: 200px;
     height: 125px;
@@ -8,10 +13,20 @@
     text-align: center;
     justify-content: center;
     margin: 5px;
+
+    /* background: url(../img/rose.png);
+    background-size: 40% auto;
+    background-repeat: no-repeat;
+    background-position: bottom right; */
+}
+
+.card.remove {
+    border: #fff 4px solid;
+    box-shadow: 0 0 7px 4px var(--indigo);
 }
 
 .card.five {
-    background-color: #fff;
+    background-color: #fff0fd;
     color: #ca2a83;
 }
 
@@ -20,6 +35,82 @@
     color: #fff;
 }
 
-#five-card, #seven-card {
+#five-card,
+#seven-card {
     margin: 20px;
+}
+
+.btn-circle-fishy {
+    display: inline-block;
+    text-decoration: none;
+    color: #FFF;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+    /* background-image: linear-gradient(45deg, #709dff 0%, #91fdb7 100%); */
+    transition: .4s;
+    border: none;
+    font-weight: bold;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ca2a83+0,7db9e8+100 */
+    background: #ca2a83;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ca2a83 0%, #7db9e8 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #ca2a83 0%, #7db9e8 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #ca2a83 0%, #7db9e8 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ca2a83', endColorstr='#7db9e8', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.btn-circle-fishy:hover:not(:disabled) {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+}
+
+.btn-circle-fishy:disabled {
+    filter: grayscale(100);
+}
+
+.btn_area {
+    text-align: center;
+}
+
+.palse {
+    animation: animate 1s linear infinite;
+
+}
+
+@keyframes animate {
+    0% {
+        box-shadow: 0 0 0 0 rgba(209, 29, 155, 0.6), 0 0 0 0 rgba(209, 29, 155, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 0 30px rgba(29, 171, 209, 0), 0 0 0 0 rgba(209, 29, 155, 0.6);
+    }
+}
+
+h1 {
+    position: relative;
+    color: #333;
+    margin: 47px 0;
+}
+
+h1:before {
+    content: "";
+    position: absolute;
+    background: #ffbcbc;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }

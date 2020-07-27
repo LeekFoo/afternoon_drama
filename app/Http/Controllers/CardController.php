@@ -12,6 +12,9 @@ class CardController extends Controller
     const FIVE = 7;
     const SEVEN = 3;
 
+    const SENRYU_FIVE = 2;
+    const SENRYU_SEVEN = 1;
+
     public function list(Request $request) {
         $fiveCard = Word5::get();
         $sevenCard = Word7::get();
@@ -45,8 +48,29 @@ class CardController extends Controller
     }
 
     public function sample(Request $request) {
-        $fiveCard = Word5::inRandomOrder()->take(2)->get();
-        $sevenCard = Word7::inRandomOrder()->take(1)->get();
+        $fiveCard = Word5::inRandomOrder()->take(self::SENRYU_FIVE)->get();
+        $sevenCard = Word7::inRandomOrder()->take(self::SENRYU_SEVEN)->get();
+
+        return response([
+            'fiveCard' => $fiveCard,
+            'sevenCard' => $sevenCard
+        ]);
+    }
+
+    public function redraw(Request $request) {
+        $hold = $request->hold;
+        $redrawCntFive = $request->redrawCountFive;
+        $redrawCntSeven = $request->redrawCountSeven;
+
+        $fiveCard = Word5::inRandomOrder()
+                    ->whereNotIn('id', $hold['five'])
+                    ->take($redrawCntFive)
+                    ->get();
+
+        $sevenCard = Word5::inRandomOrder()
+                    ->whereNotIn('id', $hold['seven'])
+                    ->take($redrawCntSeven)
+                    ->get();
 
         return response([
             'fiveCard' => $fiveCard,

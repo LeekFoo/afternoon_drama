@@ -18,4 +18,5 @@ Route::group(['middleware' => ['api']], function () {
     Route::get('card',    'CardController@index');
     Route::get('card/list',    'CardController@list');
     Route::get('card/sample',    'CardController@sample');
+    Route::post('card/redraw',    'CardController@redraw');
 });
