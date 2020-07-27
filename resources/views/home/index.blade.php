@@ -1,22 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
     <h1>{{ $message }}</h1>
-    <button type="button" id="draw-btn" class="btn btn-primary">ドロー！</button>
+    <div class="btn_area">
+        <button type="button" id="draw-btn" class="btn btn-primary">ドロー！</button>
+        <button type="button" id="sample-btn" class="btn btn-primary">作例</button>
+        <button type="button" id="all-btn" class="btn btn-primary">カードリスト</button>
+    </div>
 
-    {{-- <h2>7文字</h1>
-    @foreach($word7 as $word)
-        <div>{{ $word->word }}</div>
-    @endforeach
-
-    <h2>5文字</h1>
-    @foreach($word5 as $word)
-        <div>{{ $word->word }}</div>
-    @endforeach --}}
+    <div class="sample-area mt-3"></div>
     <div id="five-card" class="container">
         <div class="row"></div>
     </div>
     <div id="seven-card" class="container">
         <div class="row"></div>
     </div>
+</div>
 @endsection

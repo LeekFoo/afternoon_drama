@@ -14,4 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('card', 'CardController');
+Route::group(['middleware' => ['api']], function () {
+    Route::get('card',    'CardController@index');
+    Route::get('card/list',    'CardController@list');
+    Route::get('card/sample',    'CardController@sample');
+});
