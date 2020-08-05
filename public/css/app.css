@@ -99,6 +99,7 @@ h1 {
     position: relative;
     color: #333;
     margin: 47px 0;
+    text-align: center;
 }
 
 h1:before {
